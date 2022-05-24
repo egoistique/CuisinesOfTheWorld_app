@@ -15,4 +15,5 @@ public interface CuisinesApi {
             String newTypeName,
             String newTimeName
     );
+    void deleteMeal(int id);
 }
