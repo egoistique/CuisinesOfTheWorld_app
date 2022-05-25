@@ -22,4 +22,19 @@ public class CountryMapper {
         return country;
     }
 
+    public Country countryFromJsonArray(JSONObject jsonObject) {
+
+        Country country = null;
+        try {
+
+            country = new Country(
+                    jsonObject.getInt("id"),
+                    jsonObject.getString("name")
+            );
+        } catch (JSONException e) {
+
+            e.printStackTrace();
+        }
+        return country;
+    }
 }

@@ -22,7 +22,7 @@ public class Time {
     }
     @Override
     public String toString() {
-        return "Country{" +
+        return "Time{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';

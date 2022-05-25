@@ -21,4 +21,20 @@ public class TypeMapper {
         }
         return type;
     }
+
+    public Type typeFromJsonArray(JSONObject jsonObject) {
+
+        Type type = null;
+        try {
+
+            type = new Type(
+                    jsonObject.getInt("id"),
+                    jsonObject.getString("name")
+            );
+        } catch (JSONException e) {
+
+            e.printStackTrace();
+        }
+        return type;
+    }
 }

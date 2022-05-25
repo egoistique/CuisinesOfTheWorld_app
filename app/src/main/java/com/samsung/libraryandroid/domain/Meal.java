@@ -1,6 +1,8 @@
 package com.samsung.libraryandroid.domain;
 
-public class Meal {
+import java.io.Serializable;
+
+public class Meal implements Serializable {
     private int id;
 
     private String name;

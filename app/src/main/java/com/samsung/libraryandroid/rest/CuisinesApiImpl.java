@@ -98,7 +98,7 @@ public class CuisinesApiImpl implements CuisinesApi{
     @Override
     public void fillCountry() {
         RequestQueue queue = Volley.newRequestQueue(context);
-        String url = BASE_URL + "/company";
+        String url = BASE_URL + "/country";
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(
                 Request.Method.GET,
@@ -114,7 +114,7 @@ public class CuisinesApiImpl implements CuisinesApi{
 
                                 JSONObject jsonObject = response.getJSONObject(i);
 
-                                Country country = new CountryMapper().countryFromMealJsonArray(jsonObject);
+                                Country country = new CountryMapper().countryFromJsonArray(jsonObject);
 
                                 NoDb.COUNTRY_LIST.add(country);
                             }
@@ -135,7 +135,7 @@ public class CuisinesApiImpl implements CuisinesApi{
     @Override
     public void fillType() {
         RequestQueue queue = Volley.newRequestQueue(context);
-        String url = BASE_URL + "/genre";
+        String url = BASE_URL + "/type";
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(
                 Request.Method.GET,
@@ -151,9 +151,9 @@ public class CuisinesApiImpl implements CuisinesApi{
 
                                 JSONObject jsonObject = response.getJSONObject(i);
 
-                                Type genre = new TypeMapper().typeFromMealJsonArray(jsonObject);
+                                Type type = new TypeMapper().typeFromJsonArray(jsonObject);
 
-                                NoDb.TYPE_LIST.add(genre);
+                                NoDb.TYPE_LIST.add(type);
                             }
                             Log.d("TYPE_LIST", NoDb.TYPE_LIST.toString());
                         } catch (JSONException e) {
@@ -189,7 +189,7 @@ public class CuisinesApiImpl implements CuisinesApi{
 
                                 JSONObject jsonObject = response.getJSONObject(i);
 
-                                Time time = new TimeMapper().timeFromMealJsonArray(jsonObject);
+                                Time time = new TimeMapper().timeFromJsonArray(jsonObject);
 
                                 NoDb.TIME_LIST.add(time);
                             }
@@ -250,8 +250,6 @@ public class CuisinesApiImpl implements CuisinesApi{
 
                         Log.d("Response", response);
 
-                        //стоит обновлять локально
-                        //но пока так
                         fillMeal();
                     }
                 },

@@ -21,7 +21,7 @@ public class Type {
     }
     @Override
     public String toString() {
-        return "Country{" +
+        return "Type{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';

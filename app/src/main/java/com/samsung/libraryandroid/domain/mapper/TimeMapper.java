@@ -21,4 +21,19 @@ public class TimeMapper {
         }
         return time;
     }
+    public Time timeFromJsonArray(JSONObject jsonObject) {
+
+        Time time = null;
+        try {
+
+            time = new Time(
+                    jsonObject.getInt("id"),
+                    jsonObject.getString("name")
+            );
+        } catch (JSONException e) {
+
+            e.printStackTrace();
+        }
+        return time;
+    }
 }
